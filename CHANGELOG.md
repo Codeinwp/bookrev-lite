@@ -1,4 +1,14 @@
 
+### 1.7.0 - 23/09/2016
+**Changes:** 
+- Fixed issue with footer widgets layout on category page
+- Removed description tag from header which caused a conflict with SEO plugins
+- Use add_theme_support for title
+- Use core's favicon instead of custom favicon option
+- Use core's logo instead of custom logo option
+- Improved prefixing and escaping
+- Update tags
+
 
 ### 1.6.9 - 19/04/2016
 
