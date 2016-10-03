@@ -1,4 +1,10 @@
 
+### 1.7.1 - 03/10/2016
+**Changes:** 
+- Fixed gravatar issue
+- Update tgm plugin
+- Update tags in readme.txt
+
 ### 1.7.0 - 23/09/2016
 **Changes:** 
 - Fixed issue with footer widgets layout on category page
