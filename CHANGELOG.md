@@ -1,4 +1,9 @@
 
+### 1.7.2 - 02/11/2016
+**Changes:** 
+- Update screenshot
+- Update readme
+
 ### 1.7.1 - 03/10/2016
 **Changes:** 
 - Fixed gravatar issue
