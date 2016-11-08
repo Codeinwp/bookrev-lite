@@ -1,4 +1,10 @@
 
+### 1.7.3 - 08/11/2016
+**Changes:** 
+- Reorganize customize upsells
+- Fixed issues with default values in the slider section
+- Fixed escaping issues
+
 ### 1.7.2 - 02/11/2016
 **Changes:** 
 - Update screenshot
