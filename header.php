@@ -54,8 +54,36 @@
 
         <div class="container">
 
-            <a href="<?php echo home_url(); ?>" class="logo"><h1><?php bloginfo("title"); echo " - "; bloginfo("description"); ?></h1></a>
 
+            <?php
+            if ( function_exists( 'the_custom_logo' ) && has_custom_logo() ) {
+                the_custom_logo();
+                if (is_customize_preview()){ ?>
+                    <div class="logo bookrev-hidden-preview">
+                        <h1 itemprop="headline" id="site-title" class="site-title">
+                            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+				                <?php bloginfo( 'name' ); ?>
+                            </a>
+                        </h1>
+                        <p itemprop="description" id="site-description" class="site-description">
+			                <?php bloginfo( 'description' ); ?>
+                        </p>
+                    </div>
+                    <?php
+                }
+            } else {?>
+                <div class="logo">
+                    <h1 itemprop="headline" id="site-title" class="site-title">
+                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+			                <?php bloginfo( 'name' ); ?>
+                        </a>
+                    </h1>
+                    <p itemprop="description" id="site-description" class="site-description">
+		                <?php bloginfo( 'description' ); ?>
+                    </p>
+                </div>
+                <?php
+            } ?>
 
 
             <section id="ad-banner">

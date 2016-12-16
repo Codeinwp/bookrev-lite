@@ -106,23 +106,32 @@ Text Domain: book-rev-lite
   padding: 35px 0px;
 }
 
-
+.custom-logo-link{
+  display: block;
+  float: left;
+}
 
 /* Main Logo */
 #inner-header .logo {
   display: block;
-  width: 176px;
-  height: 56px;
-  background: url("img/logo.png") no-repeat;
   float: left;
 }
 
 #inner-header .logo h1 {
   margin: 0;
-  text-indent: -9999px;
 }
 
+#inner-header .logo a{
+  color: #362f2b;
+}
 
+.site-description{
+  margin-top: 0;
+}
+
+.bookrev-hidden-preview{
+  display: none!important;
+}
 
 /* Ad Banner - 468 x 61 */
 #inner-header #ad-banner {
