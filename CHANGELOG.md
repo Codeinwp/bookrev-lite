@@ -1,4 +1,8 @@
 
+### 1.7.4 - 16/12/2016
+**Changes:** 
+- Fixed issue with Site title and tagline not displaying
+
 ### 1.7.3 - 08/11/2016
 **Changes:** 
 - Reorganize customize upsells
