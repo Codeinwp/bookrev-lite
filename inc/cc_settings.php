@@ -1018,11 +1018,11 @@ if(!function_exists('book_rev_lite_theme_customizer')) {
 
 			        'label' 	=> __('Logo Width', 'book-rev-lite'),
 
-			        'section' 	=> 'wpc_header_section',
+			        'section' 	=> 'title_tagline',
 
 			        'type' 		=> 'text',
 
-			        'priority'		=> 35
+			        'priority'		=> 11
 
 			    )
 
@@ -1060,11 +1060,11 @@ if(!function_exists('book_rev_lite_theme_customizer')) {
 
 			        'label' 	=> __('Logo Height', 'book-rev-lite'),
 
-			        'section' 	=> 'wpc_header_section',
+			        'section' 	=> 'title_tagline',
 
 			        'type' 		=> 'text',
 
-			        'priority'	=> 35
+			        'priority'	=> 12
 
 			    )
 
