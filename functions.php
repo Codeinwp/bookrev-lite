@@ -236,7 +236,7 @@ if(!function_exists('book_rev_lite_load_req_scripts')) {
 
 		// Register and enqueue the main stylesheet.
 
-		wp_enqueue_style( 'book-rev-lite-main-css', get_stylesheet_uri()); 
+		wp_enqueue_style( 'book-rev-lite-main-css', get_stylesheet_uri(), array(), '1.7.4' );
 
 
 
@@ -843,15 +843,13 @@ function book_rev_lite_php_style() {
 
 	// Set header logo.
 
-	$cwp_wpc_header_logo = wp_get_attachment_image_url( get_theme_mod( 'custom_logo') );
-
 	$cwp_wpc_header_logo_width = get_theme_mod("logo-width",'176');
 
 	$cwp_wpc_header_logo_height = get_theme_mod("logo-height",'56');
 
 	if( has_custom_logo() ) {
 
-		echo "#inner-header .logo { background:url('" .  esc_url($cwp_wpc_header_logo) . "') no-repeat; width: " . intval($cwp_wpc_header_logo_width) . "px !important; height: " . intval($cwp_wpc_header_logo_height) . "px !important;}";
+		echo ".custom-logo-link img { width: " . (int)$cwp_wpc_header_logo_width . "px !important; height: " . (int)$cwp_wpc_header_logo_height . "px !important;}";
 
 	}
 
