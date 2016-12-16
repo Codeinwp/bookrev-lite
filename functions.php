@@ -236,7 +236,7 @@ if(!function_exists('book_rev_lite_load_req_scripts')) {
 
 		// Register and enqueue the main stylesheet.
 
-		wp_enqueue_style( 'book-rev-lite-main-css', get_stylesheet_uri()); 
+		wp_enqueue_style( 'book-rev-lite-main-css', get_stylesheet_uri(), array(), '1.7.4' );
 
 
 
