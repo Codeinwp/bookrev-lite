@@ -1166,3 +1166,22 @@ function book_rev_lite_options_typography_google_fonts() {
 	
 	endif;
 }
+
+/* WooCommerce Support */
+remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
+
+/* Add container on Shop Page*/
+function book_rev_lite_before_shop_loop() {
+	?>
+	<div class="<?php echo esc_attr( 'container' ); ?>">
+	<?php
+}
+add_action( 'woocommerce_before_main_content', 'book_rev_lite_before_shop_loop', 10 );
+
+/* Close container on Shop Page */
+function book_rev_lite_after_shop_loop() {
+	?>
+	</div>
+	<?php
+}
+add_action( 'woocommerce_after_main_content', 'book_rev_lite_after_shop_loop', 10 );
