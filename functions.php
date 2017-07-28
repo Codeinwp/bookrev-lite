@@ -1173,7 +1173,7 @@ remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
 /* Add container on Shop Page*/
 function book_rev_lite_before_shop_loop() {
 	?>
-	<div class="<?php echo esc_attr( 'container' ); ?>">
+	<div class="container">
 	<?php
 }
 add_action( 'woocommerce_before_main_content', 'book_rev_lite_before_shop_loop', 10 );
