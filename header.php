@@ -140,31 +140,31 @@
 
                 <ul>
 
-                    <?php 
+                    <?php
 
-                        $social_links = array(
+                    $social_links = array(
 
-                            array('gplus_href', 'fa-google-plus'),
+	                    array( 'gplus_href', 'fa-google-plus' ),
 
-                            array('twitter_href', 'fa-twitter'),
+	                    array( 'facebook_href', 'fa-facebook' ),
 
-                            array('facebook_href', 'fa-facebook'),
+	                    array( 'twitter_href', 'fa-twitter' ),
 
-                            array('linkedin_href', 'fa-linkedin'),
+	                    array( 'instagram_href', 'fa-instagram' ),
 
-                            array('instagram_href', 'fa-instagram'),
+	                    array( 'pinterest_href', 'fa-pinterest' ),
 
-                            array('pinterest_href', 'fa-pinterest'),
+	                    array( 'youtube_href', 'fa-youtube' ),
 
-                            array('youtube_href', 'fa-youtube'),
+	                    array( 'vimeo_href', 'fa-vimeo-square' ),
 
-                            array('vimeo_href', 'fa-vimeo-square'),
+	                    array( 'tumblr_href', 'fa-tumblr' ),
 
-                            array('tumblr_href', 'fa-tumblr'),
+	                    array( 'linkedin_href', 'fa-linkedin' ),
 
-                            array('flickr_href', 'fa-flickr'),
+	                    array( 'flickr_href', 'fa-flickr' ),
 
-                        );
+                    );
 
 
 
