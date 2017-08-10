@@ -1,4 +1,9 @@
 
+### 1.7.6 - 10/08/2017
+**Changes:** 
+- Basic WooCommerce integration
+- Fixed social icons order
+
 ### 1.7.4 - 16/12/2016
 **Changes:** 
 - Fixed issue with Site title and tagline not displaying
