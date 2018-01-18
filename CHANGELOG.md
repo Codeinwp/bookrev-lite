@@ -1,47 +1,76 @@
 
-### 1.7.8 - 18/01/2018
-**Changes:** 
-- #69 fix for WP Product review article listing
 
-### 1.7.7 - 18/01/2018
-**Changes:** 
-- Fixed compatibility with WP Product Review plugin
+### 1.7.8 - 18/01/2018
 
-### 1.7.6 - 10/08/2017
-**Changes:** 
-- Basic WooCommerce integration
-- Fixed social icons order
+**Changes:** 
 
-### 1.7.4 - 16/12/2016
-**Changes:** 
-- Fixed issue with Site title and tagline not displaying
+- Fixed compatibility with WP Product Review plugin
 
-### 1.7.3 - 08/11/2016
-**Changes:** 
-- Reorganize customize upsells
-- Fixed issues with default values in the slider section
-- Fixed escaping issues
 
-### 1.7.2 - 02/11/2016
-**Changes:** 
-- Update screenshot
-- Update readme
+### 1.7.6 - 10/08/2017
 
-### 1.7.1 - 03/10/2016
-**Changes:** 
-- Fixed gravatar issue
-- Update tgm plugin
-- Update tags in readme.txt
+**Changes:** 
 
-### 1.7.0 - 23/09/2016
-**Changes:** 
-- Fixed issue with footer widgets layout on category page
-- Removed description tag from header which caused a conflict with SEO plugins
-- Use add_theme_support for title
-- Use core's favicon instead of custom favicon option
-- Use core's logo instead of custom logo option
-- Improved prefixing and escaping
-- Update tags
+- Basic WooCommerce integration
+
+- Fixed social icons order
+
+
+### 1.7.4 - 16/12/2016
+
+**Changes:** 
+
+- Fixed issue with Site title and tagline not displaying
+
+
+### 1.7.3 - 08/11/2016
+
+**Changes:** 
+
+- Reorganize customize upsells
+
+- Fixed issues with default values in the slider section
+
+- Fixed escaping issues
+
+
+### 1.7.2 - 02/11/2016
+
+**Changes:** 
+
+- Update screenshot
+
+- Update readme
+
+
+### 1.7.1 - 03/10/2016
+
+**Changes:** 
+
+- Fixed gravatar issue
+
+- Update tgm plugin
+
+- Update tags in readme.txt
+
+
+### 1.7.0 - 23/09/2016
+
+**Changes:** 
+
+- Fixed issue with footer widgets layout on category page
+
+- Removed description tag from header which caused a conflict with SEO plugins
+
+- Use add_theme_support for title
+
+- Use core's favicon instead of custom favicon option
+
+- Use core's logo instead of custom logo option
+
+- Improved prefixing and escaping
+
+- Update tags
 
 
 ### 1.6.9 - 19/04/2016
