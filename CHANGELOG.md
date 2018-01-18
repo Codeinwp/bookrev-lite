@@ -1,4 +1,8 @@
 
+### 1.7.7 - 18/01/2018
+**Changes:** 
+- Fixed compatibility with WP Product Review plugin
+
 ### 1.7.6 - 10/08/2017
 **Changes:** 
 - Basic WooCommerce integration
