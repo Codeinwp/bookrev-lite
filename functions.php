@@ -506,20 +506,29 @@ if ( ! function_exists( 'book_rev_lite_display_review_class' ) ) {
      * is passed.
      */
     function book_rev_lite_display_review_class( $grade ) {
+
+        $class = 'default';
+
         if ( function_exists( 'cwppos_show_review' ) ) {
+
             if ( $grade <= 2.5 ) {
-                echo 'weak';
+                $class = 'weak';
             }
+
             if ( $grade > 2.5 && $grade <= 5 ) {
-                echo 'nb';
+                $class = 'nb';
             }
+
             if ( $grade > 5 && $grade <= 7.5 ) {
-                echo 'good';
+                $class = 'good';
             }
+
             if ( $grade > 7.5 && $grade <= 10 ) {
-                echo 'vg';
+                $class = 'vg';
             }
         }
+
+        return $class;
     }
 }
 
