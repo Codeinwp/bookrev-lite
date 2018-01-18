@@ -1,4 +1,8 @@
 
+### 1.7.8 - 18/01/2018
+**Changes:** 
+- #69 fix for WP Product review article listing
+
 ### 1.7.7 - 18/01/2018
 **Changes:** 
 - Fixed compatibility with WP Product Review plugin
