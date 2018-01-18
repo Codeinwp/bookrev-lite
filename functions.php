@@ -420,38 +420,25 @@ function book_rev_lite_migrate_logo(){
 add_action( 'after_setup_theme', 'book_rev_lite_migrate_logo' );
 
 
-// Display Review Grade
-
-if(!function_exists('book_rev_lite_get_review_grade')) {
-
-	function book_rev_lite_get_review_grade($id) {
-
-		if(function_exists('cwppos_show_review')) {	
-
-			$postMeta = array();
-
-			for($i=1; $i <= 5; $i++) { 
-
-				$pmi = get_post_meta($id, 'option_'.$i.'_grade');
-
-				if(!empty($pmi[0])) array_push($postMeta, $pmi[0]);
-
-			}
-
-			if(!empty($postMeta)) {
-
-				$total = 0;
-
-				foreach ($postMeta as $key => $value) $total += $value;
-
-				return round($total / count($postMeta), 0) / 10;
-
-			}
-
-		}
-
-	}	
-
+if ( ! function_exists( 'book_rev_lite_get_review_grade' ) ) {
+    /**
+     * Display Review Grade
+     */
+    function book_rev_lite_get_review_grade( $id ) {
+        if ( function_exists( 'cwppos_show_review' ) ) {
+            $total = 0;
+            $cwppos_options = get_post_meta( get_the_ID(), 'wppr_options', true );
+            if ( ! empty( $cwppos_options ) ) {
+                foreach ( $cwppos_options as $option ) {
+                    if ( ! empty( $option['value'] ) ) {
+                        $total += $option['value'];
+                    }
+                }
+                return round( $total / count( $cwppos_options ), 0 ) / 10;
+            }
+        }
+        return false;
+    }
 }
 
 
@@ -470,66 +457,71 @@ if(!function_exists('book_rev_lite_display_review_grade')) {
 
 
 
-if(!function_exists('book_rev_lite_get_product_review_colors')) {
-
-	function book_rev_lite_get_product_review_colors() {
-
-		if(function_exists('cwppos_show_review')) {
-
-			$c['default'] = cwppos('cwppos_rating_default');
-
-			$c['weak']    = cwppos('cwppos_rating_weak');
-
-			$c['nb']      = cwppos('cwppos_rating_notbad');
-
-			$c['good']    = cwppos('cwppos_rating_good');
-
-			$c['vg']      = cwppos('cwppos_rating_very_good');
-
-			return $c;
-
-		}
-
-	}	
-
+if ( ! function_exists( 'book_rev_lite_get_product_review_colors' ) ) {
+    /**
+     * Get the product review colors.
+     *
+     * @return mixed
+     */
+    function book_rev_lite_get_product_review_colors() {
+        if ( function_exists( 'cwppos_show_review' ) ) {
+            $c = array();
+            $cwppos_options = get_option( 'cwppos_options' );
+            if ( ! empty( $cwppos_options ) ) {
+                if ( ! empty( $cwppos_options['cwppos_rating_default'] ) ) {
+                    $c['default'] = $cwppos_options['cwppos_rating_default'];
+                } else {
+                    $c['default'] = 'rgb(235, 235, 235)';
+                }
+                if ( ! empty( $cwppos_options['cwppos_rating_weak'] ) ) {
+                    $c['weak'] = $cwppos_options['cwppos_rating_weak'];
+                } else {
+                    $c['weak'] = 'rgb(255, 127, 102)';
+                }
+                if ( ! empty( $cwppos_options['cwppos_rating_notbad'] ) ) {
+                    $c['nb'] = $cwppos_options['cwppos_rating_notbad'];
+                } else {
+                    $c['nb'] = 'rgb(255, 206, 85)';
+                }
+                if ( ! empty( $cwppos_options['cwppos_rating_good'] ) ) {
+                    $c['good'] = $cwppos_options['cwppos_rating_good'];
+                } else {
+                    $c['good'] = 'rgb(80, 193, 233)';
+                }
+                if ( ! empty( $cwppos_options['cwppos_rating_very_good'] ) ) {
+                    $c['vg'] = $cwppos_options['cwppos_rating_very_good'];
+                } else {
+                    $c['vg'] = 'rgb(141, 193, 83)';
+                }
+            }
+            return $c;
+        }
+    }
 }
 
-
-
-/**
-
- * In case WP Product Review plugin is installed and active this function
-
- * is responsable for generating the required classes based on what grade
-
- * is passed. 
-
- * 
-
- * @return null [] 
-
- */
-
-if(!function_exists('book_rev_lite_display_review_class')) {
-
-	function book_rev_lite_display_review_class($grade) {
-
-		if(function_exists('cwppos_show_review')) {
-
-			if($grade <= 2.5) echo 'weak';
-
-			if($grade > 2.5 && $grade <= 5) echo 'nb';
-
-			if($grade > 5 && $grade <= 7.5)  echo 'good';
-
-			if($grade > 7.5 && $grade <= 10) echo "vg";
-
-		}
-
-	}	
-
+if ( ! function_exists( 'book_rev_lite_display_review_class' ) ) {
+    /**
+     * In case WP Product Review plugin is installed and active this function
+     * is responsable for generating the required classes based on what grade
+     * is passed.
+     */
+    function book_rev_lite_display_review_class( $grade ) {
+        if ( function_exists( 'cwppos_show_review' ) ) {
+            if ( $grade <= 2.5 ) {
+                echo 'weak';
+            }
+            if ( $grade > 2.5 && $grade <= 5 ) {
+                echo 'nb';
+            }
+            if ( $grade > 5 && $grade <= 7.5 ) {
+                echo 'good';
+            }
+            if ( $grade > 7.5 && $grade <= 10 ) {
+                echo 'vg';
+            }
+        }
+    }
 }
-
 
 
 /**
@@ -632,107 +624,106 @@ if(!function_exists("book_rev_lite_excerpt_filter")) {
 
 
 
-	if(!function_exists("book_rev_lite_wpr_get_review_options")) {
-
-	    function book_rev_lite_wpr_get_review_options() {
-
-	        if(function_exists('cwppos_show_review')) {
-
-    	        for($i=1; $i<6; $i++) $review_options[$i]['grade'] = get_post_meta(get_the_ID(), "option_".$i."_grade", true) ? get_post_meta(get_the_ID(), "option_".$i."_grade", true) : ""; 
-
-    	        for($i=1; $i<6; $i++) $review_options[$i]['name'] =  get_post_meta(get_the_ID(), "option_".$i."_content", true) ? get_post_meta(get_the_ID(), "option_".$i."_content", true) : "";
-
-    	        return $review_options;
-
-	        }
-
-	    }		
-
-	}
-
-    
-
-    if(!function_exists("book_rev_lite_wpr_get_pros")) {
-
-	    function book_rev_lite_wpr_get_pros() {
-
-	        if(function_exists('cwppos_show_review')) {
-
-    	        for($i=1;$i<=5;$i++){
-
-    	            if(get_post_meta(get_the_ID(), "cwp_option_".$i."_pro", true)) $pros[$i] = get_post_meta(get_the_ID(), "cwp_option_".$i."_pro", true);
-
-    	        }
-
-    	        if(isset($pros)) return $pros;
-
-	        }
-
-	    }  	
-
+if ( ! function_exists( 'book_rev_lite_wpr_get_review_options' ) ) {
+    /**
+     * Show review.
+     *
+     * @return mixed
+     */
+    function book_rev_lite_wpr_get_review_options() {
+        if ( function_exists( 'cwppos_show_review' ) ) {
+            $nr_cwppos_options = 5;
+            $cwppos_options = get_post_meta( get_the_ID(), 'wppr_options', true );
+            if ( ! empty( $cwppos_options ) ) {
+                return array_slice( $cwppos_options, 0, $nr_cwppos_options );
+            }
+        }
+        return array();
     }
+}
 
 
 
-    if(!function_exists("book_rev_lite_wpr_get_cons")) {
-
-	    function book_rev_lite_wpr_get_cons() {
-
-	        if(function_exists('cwppos_show_review')) {
-
-    	        for($i=1;$i<=5;$i++){
-
-    	            if(get_post_meta(get_the_ID(), "cwp_option_".$i."_cons", true)) $cons[$i] = get_post_meta(get_the_ID(), "cwp_option_".$i."_cons", true);
-
-    	        }
-
-    	        if(isset($cons)) return $cons;
-
-	        }
-
-	    }
-
+if ( ! function_exists( 'book_rev_lite_wpr_get_pros' ) ) {
+    /**
+     * Get pros.
+     *
+     * @return mixed
+     */
+    function book_rev_lite_wpr_get_pros() {
+        if ( function_exists( 'cwppos_show_review' ) ) {
+            $nr_cwppos_options = 5;
+            $cwppos_options = get_post_meta( get_the_ID(), 'wppr_pros', true );
+            if ( ! empty( $cwppos_options ) ) {
+                return array_slice( $cwppos_options, 0, $nr_cwppos_options );
+            }
+        }
+        return array();
     }
+}
 
 
 
-    if(!function_exists("book_rev_lite_wpr_get_affiliate_text")) {
-
-	    function book_rev_lite_wpr_get_affiliate_text() {
-
-	        if(function_exists('cwppos_show_review')) {
-
-	            return get_post_meta(get_the_ID(), "cwp_product_affiliate_text", true); 
-
-	        }
-
-	    }	
-
+if ( ! function_exists( 'book_rev_lite_wpr_get_cons' ) ) {
+    /**
+     * Get cons.
+     *
+     * @return mixed
+     */
+    function book_rev_lite_wpr_get_cons() {
+        if ( function_exists( 'cwppos_show_review' ) ) {
+            $nr_cwppos_options = 5;
+            $cwppos_options = get_post_meta( get_the_ID(), 'wppr_cons', true );
+            if ( ! empty( $cwppos_options ) ) {
+                return array_slice( $cwppos_options, 0, $nr_cwppos_options );
+            }
+        }
+        return array();
     }
+}
 
 
 
-    if(!function_exists("book_rev_lite_wpr_get_affiliate_link")) {
-
-	    function book_rev_lite_wpr_get_affiliate_link() {
-
-	        if(function_exists('cwppos_show_review')) {
-
-	            return get_post_meta(get_the_ID(), "cwp_product_affiliate_link", true); 
-
-	        }
-
-	    }	
-
+if ( ! function_exists( 'book_rev_lite_wpr_get_affiliate_text' ) ) {
+    /**
+     * Get affiliate text.
+     *
+     * @return mixed
+     */
+    function book_rev_lite_wpr_get_affiliate_text() {
+        if ( function_exists( 'cwppos_show_review' ) ) {
+            $links = get_post_meta( get_the_ID(), 'wppr_links' );
+            if ( is_array( $links ) && is_array( $links[0] ) ) {
+                $texts = array_keys( $links[0] );
+                if ( ! empty( $texts ) ) {
+                    return $texts[0];
+                }
+            }
+        }
+        return '';
     }
-
-	
-
+}
 
 
-
-
-
+if ( ! function_exists( 'book_rev_lite_wpr_get_affiliate_link' ) ) {
+    /**
+     * Get affiliate link.
+     *
+     * @return mixed
+     */
+    function book_rev_lite_wpr_get_affiliate_link() {
+        if ( function_exists( 'cwppos_show_review' ) ) {
+            $links = get_post_meta( get_the_ID(), 'wppr_links' );
+            if ( is_array( $links ) && is_array( $links[0] ) ) {
+                $urls = array_values( $links[0] );
+                if ( ! empty( $urls ) ) {
+                    return $urls[0];
+                }
+            }
+        }
+        return '';
+    }
+}
 
 /**
 
