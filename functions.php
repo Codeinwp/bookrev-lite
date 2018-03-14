@@ -371,7 +371,7 @@ if(!function_exists('book_rev_lite_get_limited_content')) {
 
 		$content = get_the_excerpt();
 
-		echo mb_strimwidth($content, 0, $character_count, $after);
+		echo substr( $content, 0, $character_count ) . $after;
 
 	}	
 
