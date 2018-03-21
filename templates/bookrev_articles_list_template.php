@@ -26,9 +26,14 @@
 
             </div><!-- end .comment-count -->
 
-            <?php $grade = book_rev_lite_get_review_grade(get_the_ID()); ?>
-
-            <span class="grade <?php echo book_rev_lite_display_review_class($grade); ?>"> <?php if(!empty($grade)) book_rev_lite_display_review_grade($grade); ?> </span>
+            <?php
+            $grade = book_rev_lite_get_review_grade( get_the_ID() );
+            if ( ! empty( $grade ) ) {
+                echo '<span class="grade ' . book_rev_lite_display_review_class( $grade ) . '">';
+                book_rev_lite_display_review_grade( $grade );
+                echo '</span>';
+            }
+            ?>
 
         </div><!-- end .feat-img -->
 
