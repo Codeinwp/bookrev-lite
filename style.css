@@ -4,7 +4,7 @@ Theme URI: https://themeisle.com/themes/bookrev-lite/
 Author: Themeisle
 Author URI: https://themeisle.com
 Description: Book Rev Lite is a free book review WordPress Theme. The responsive, clean and modern design includes tools for presenting your books/products in a beautiful way, you can easily add adsense ads, google fonts, custom colors, slider support and the pro version has also ecommerce ( Woocommerce ) integration.Works great for product review and amazon affiliate sites.
-Version: 1.7.4
+Version: 1.7.5
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags:  blog,custom-menu, featured-images, one-column, post-formats, sticky-post, translation-ready,right-sidebar,two-columns, custom-background,custom-header,full-width-template,theme-options
@@ -2882,4 +2882,67 @@ img.aligncenter {
 .cwp-chart-embed {
 	position:relative!important;
 	margin:10px!important;
+}
+
+/* WooCommerce */
+.woocommerce div#content {
+  padding: 50px 100px;
+}
+
+@media only screen and (max-width: 992px) {
+
+  .woocommerce ul.products li.first,
+  .woocommerce-page ul.products li.first {
+      clear: none;
+  }
+
+  .woocommerce ul.products li.last,
+  .woocommerce-page ul.products li.last {
+      margin: 0 3.8% 2.992em 0;
+  }
+
+  .woocommerce ul.products li.product:nth-of-type(3n+1) {
+      clear: both;
+      width: 29%;
+  }
+  .woocommerce ul.products li.product:nth-of-type(3n+2) {
+      width: 29%;
+  }
+  .woocommerce ul.products li.product:nth-of-type(3n+3) {
+      margin-right: 0;
+      width: 29%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+
+  .woocommerce ul.products li.product:nth-of-type(3n+1),
+  .woocommerce ul.products li.product:nth-of-type(3n+2),
+  .woocommerce ul.products li.product:nth-of-type(3n+3) {
+      clear: none;
+  }
+
+  .woocommerce ul.products li.product:nth-of-type(2n+1) {
+      clear: both;
+      width: 48%;
+      margin: 0 3.8% 2.992em 0;
+  }
+  .woocommerce ul.products li.product:nth-of-type(2n+2) {
+      width: 48%;
+      margin-right: 0;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+
+  .woocommerce ul.products li.product:nth-of-type(2n+1),
+  .woocommerce ul.products li.product:nth-of-type(2n+2) {
+      clear: none;
+      width: 100%;
+  }
+
+  .woocommerce .woocommerce-ordering,
+  .woocommerce-page .woocommerce-ordering {
+    float: none;
+  }
 }
