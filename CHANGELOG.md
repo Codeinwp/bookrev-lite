@@ -1,4 +1,9 @@
 
+### 1.7.10 - 11/05/2018
+**Changes:** 
+- Compatibility with the Orbit Fox plugin
+- Fixed compatibility with Wordpress Product Review plugin pro and cons fields
+
 ### 1.7.9 - 14/03/2018
 
 **Changes:** 
