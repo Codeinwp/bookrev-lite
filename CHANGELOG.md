@@ -1,8 +1,11 @@
 
-### 1.7.9 - 14/03/2018
-**Changes:** 
-- Replaced mb_strimwidth function with alternative function for lower PHP versions
-
+### 1.7.9 - 14/03/2018
+
+**Changes:** 
+
+- Replaced mb_strimwidth function with alternative function for lower PHP versions
+
+
 
 ### 1.7.8 - 18/01/2018
 

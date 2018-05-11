@@ -100,6 +100,16 @@ function book_rev_lite_required_plugins() {
 
 			'required' 	=> false,
 
+		),
+
+		array(
+
+			'name' 		=> 'Orbit Fox',
+
+			'slug' 		=> 'themeisle-companion',
+
+			'required' 	=> false,
+
 		)
 
 		
